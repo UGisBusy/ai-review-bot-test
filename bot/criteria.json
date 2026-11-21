@@ -1,0 +1,40 @@
+{
+  "parts": [
+    {
+      "id": "problem",
+      "title": "Problem",
+      "points": [
+        { "id": "problem_stated", "label": "States what is wrong or missing", "check": "llm" },
+        { "id": "problem_impact", "label": "Explains who is affected or why it matters", "check": "llm" },
+        { "id": "problem_issue_link", "label": "Links the related issue", "check": "script" }
+      ]
+    },
+    {
+      "id": "summary",
+      "title": "Summary",
+      "points": [
+        { "id": "summary_filled", "label": "Section is filled in", "check": "script" },
+        { "id": "summary_what", "label": "Describes what the change does", "check": "llm" },
+        { "id": "summary_matches_diff", "label": "Matches the diff, nothing major left out", "check": "llm" }
+      ]
+    },
+    {
+      "id": "verification",
+      "title": "Verification",
+      "points": [
+        { "id": "verification_filled", "label": "Section is filled in", "check": "script" },
+        { "id": "verification_how", "label": "Says how the change was checked", "check": "llm" },
+        { "id": "verification_tests", "label": "Tests cover the changed behavior", "check": "llm" },
+        { "id": "verification_media", "label": "Before/after screenshots for changed rendered pages", "check": "script" }
+      ]
+    },
+    {
+      "id": "synthetic_prompt",
+      "title": "Synthetic prompt",
+      "points": [
+        { "id": "prompt_filled", "label": "A quoted prompt is filled in", "check": "script" },
+        { "id": "prompt_matches", "label": "Prompt matches what the PR does", "check": "llm" }
+      ]
+    }
+  ]
+}

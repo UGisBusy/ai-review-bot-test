@@ -1,0 +1,79 @@
+{
+  "pr": 0,
+  "head_sha": "0000000000000000000000000000000000000000",
+  "requested_by": "unknown",
+  "criteria": [
+    {
+      "id": "problem_stated",
+      "status": "pass",
+      "explanation": "Says a second login fails while the first one holds the browser.",
+      "requested_change": ""
+    },
+    {
+      "id": "problem_impact",
+      "status": "fail",
+      "explanation": "Doesn't say who runs into this or when.",
+      "requested_change": "Add one sentence on who hits it, for example users running two MCP clients at once."
+    },
+    {
+      "id": "problem_issue_link",
+      "status": "fail",
+      "explanation": "No issue is linked.",
+      "requested_change": "Link the issue this PR belongs to, for example `Closes #123`."
+    },
+    {
+      "id": "summary_filled",
+      "status": "pass",
+      "explanation": "",
+      "requested_change": ""
+    },
+    {
+      "id": "summary_what",
+      "status": "pass",
+      "explanation": "Explains that each login now runs in its own directory.",
+      "requested_change": ""
+    },
+    {
+      "id": "summary_matches_diff",
+      "status": "fail",
+      "explanation": "The diff also changes the retry timeout in `browser.py`, which the Summary doesn't mention.",
+      "requested_change": "Mention the timeout change, or move it into its own PR."
+    },
+    {
+      "id": "verification_filled",
+      "status": "pass",
+      "explanation": "",
+      "requested_change": ""
+    },
+    {
+      "id": "verification_how",
+      "status": "pass",
+      "explanation": "Lists the pytest and pre-commit runs.",
+      "requested_change": ""
+    },
+    {
+      "id": "verification_tests",
+      "status": "fail",
+      "explanation": "The new `None` branch in `parse_profile()` has no test.",
+      "requested_change": "Add a test for it in `tests/linkedin/test_person.py`."
+    },
+    {
+      "id": "verification_media",
+      "status": "n/a",
+      "explanation": "No rendered page changed.",
+      "requested_change": ""
+    },
+    {
+      "id": "prompt_filled",
+      "status": "pass",
+      "explanation": "",
+      "requested_change": ""
+    },
+    {
+      "id": "prompt_matches",
+      "status": "pass",
+      "explanation": "The prompt asks for the change the PR makes.",
+      "requested_change": ""
+    }
+  ]
+}

@@ -1,19 +1,24 @@
 """Dummy review script.
 
-Prints a placeholder review as Markdown on stdout. The workflow posts that
-output as a PR comment. The real checks and the Claude API call replace this
-later.
+Renders the sample report as a Markdown PR comment on stdout. The workflow
+posts that output as a PR comment. The real checks and the Claude API call
+replace the sample data later.
 """
 
+import json
 import os
+import sys
+from pathlib import Path
 
-pr_number = os.environ.get("PR_NUMBER", "?")
-requested_by = os.environ.get("REQUESTED_BY", "unknown")
+from report import render
 
-print(f"""## PR review bot (dummy)
+SAMPLE_FILE = Path(__file__).with_name("sample_report.json")
 
-Review of PR #{pr_number}, requested by `{requested_by}`.
+report = json.loads(SAMPLE_FILE.read_text(encoding="utf-8"))
+report["pr"] = int(os.environ.get("PR_NUMBER", report["pr"]))
+report["requested_by"] = os.environ.get("REQUESTED_BY", report["requested_by"])
 
-**Score:** 0 / 100 (placeholder)
-
-The workflow works. Real checks come next.""")
+# The comment contains emoji; make sure stdout can encode them on any OS.
+sys.stdout.reconfigure(encoding="utf-8")
+print("> ⚠️ **Dummy data:** the checks are not implemented yet.\n")
+print(render(report))
